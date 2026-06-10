@@ -1,0 +1,25 @@
+{
+  "name": "http-website-inspector-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fifa98980-sudo/HTTP-Website-Inspector-CLI.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/fifa98980-sudo/HTTP-Website-Inspector-CLI/issues"
+  },
+  "homepage": "https://github.com/fifa98980-sudo/HTTP-Website-Inspector-CLI#readme",
+  "dependencies": {
+    "jest": "^30.4.2"
+  }
+}

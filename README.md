@@ -305,3 +305,175 @@ This stage is the foundation for the rest of the project.
 
 
 
+
+//===================================================
+
+
+# Stage 1: Reading URLs from a Text File
+
+## Goal
+
+The goal of this stage is to read website URLs from a text file using Node.js.
+
+The input file is:
+
+```txt
+urls.txt
+```
+
+Example content:
+
+```txt
+https://example.com
+https://github.com
+https://google.com/search?q=nodejs
+```
+
+The program should read this file and convert its content into a clean array of URLs.
+
+Expected output:
+
+```js
+[
+  "https://example.com",
+  "https://github.com",
+  "https://google.com/search?q=nodejs"
+]
+```
+
+---
+
+## Why this stage matters
+
+Before sending HTTP requests, the program needs a source of URLs.
+
+In this project, the source is a text file.
+So the first backend problem is:
+
+```txt
+How can Node.js read data from a file?
+```
+
+This stage teaches how to use Node.js to interact with the file system.
+
+---
+
+## Concepts learned
+
+In this stage, we learned:
+
+* How to read a file using Node.js
+* What `fs/promises` means
+* Why `readFile` needs `await`
+* Why we use `async` functions
+* How to convert raw text into an array
+* How to clean empty lines and extra spaces
+* How to separate code into small functions
+
+---
+
+## File structure
+
+We used two files:
+
+```txt
+src/
+├── index.js
+└── readUrls.js
+```
+
+### `index.js`
+
+This is the entry point of the program.
+
+Its job is only to start the program and call the needed functions.
+
+### `readUrls.js`
+
+This file contains the logic for reading and parsing URLs.
+
+We separated this logic from `index.js` to keep the code clean and easier to test later.
+
+---
+
+## Code design
+
+We created two functions:
+
+```js
+parseUrlsFromText(fileContent)
+```
+
+This function takes raw text and converts it into a clean array.
+
+```js
+readUrlsFromFile(filePath)
+```
+
+This function reads the file, then uses `parseUrlsFromText` to clean and return the URLs.
+
+---
+
+## Final code idea
+
+The flow is:
+
+```txt
+urls.txt
+   ↓
+readUrlsFromFile()
+   ↓
+read file content as text
+   ↓
+parseUrlsFromText()
+   ↓
+clean array of URLs
+   ↓
+index.js prints the result
+```
+
+---
+
+## Important clean code lesson
+
+Defining a function is not enough.
+
+A function only runs when it is called.
+
+Example:
+
+```js
+parseUrlsFromText(fileContent);
+```
+
+In our project, `readUrlsFromFile` calls `parseUrlsFromText` internally.
+
+This keeps `index.js` clean and simple.
+
+---
+
+## Commands used
+
+Run the program:
+
+```bash
+node src/index.js
+```
+
+Check files:
+
+```bash
+cat src/index.js
+cat src/readUrls.js
+cat urls.txt
+```
+
+---
+
+## Summary
+
+In this stage, we learned how to use Node.js to read a text file and transform its content into useful data.
+
+This is the first real input step in the project.
+
+The project now has a clean foundation for the next stage, where each URL will be analyzed and inspected.
